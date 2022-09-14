@@ -1,12 +1,13 @@
 import React from 'react'
 import { Navbar, Container, Nav } from "react-bootstrap";
-import logo from'../assets/logo_auto.png';
+import logo from'../assets/logo.auto.png';
+import styles from "../styles/NavBar.module.css";
 
 const NavBar = () => {
   return (
-    <Navbar fixed="top" expand="md">
+    <Navbar className={styles.NavBar} fixed="top" expand="md">
     <Container>
-    <Navbar.Brand><img src={logo} alt="logo" height="55" /></Navbar.Brand>
+    <Navbar.Brand><img src={logo} alt="logo" height="65" /></Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="ml-auto">
