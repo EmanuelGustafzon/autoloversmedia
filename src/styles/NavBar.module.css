@@ -2,3 +2,11 @@
     background-color: #ECDD7B;
     border: 1px solid #fff;
   }
+
+  .NavLink {
+    padding: 5px;
+  }
+  
+  .Active i {
+    color: #7CA7CB;
+  }

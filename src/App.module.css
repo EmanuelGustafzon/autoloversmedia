@@ -34,3 +34,7 @@
     transition: color ease-in-out 0.3s;
     color: #7CA7CB;
   }
+
+  p {
+    color: white;
+  }
