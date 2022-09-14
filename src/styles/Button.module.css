@@ -1,0 +1,25 @@
+.Button {
+    font-size: 0.8rem;
+    align-self: center;
+    border-radius: 100px;
+    border-color: transparent;
+    padding: 4px 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    min-width: 75px;
+    background-color: #292A33;
+  }
+  
+  .Button:hover {
+    border-color: transparent;
+    cursor: pointer;
+    background-color: #7CA7CB;
+    color:#292A33;
+  }
+
+  .Wide {
+    padding: 10px 50px;
+    width: 100%;
+  }
+  
+  
