@@ -17,9 +17,18 @@
     color:#292A33;
   }
 
+  .Button:hover:active {
+    background-color: #7CA7CB !important;
+  }
+  
+  .Button:active {
+    background-color: #7CA7CB !important;
+  }
+
   .Wide {
     padding: 10px 50px;
     width: 100%;
   }
   
+
   
