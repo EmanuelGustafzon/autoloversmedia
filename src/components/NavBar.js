@@ -32,6 +32,15 @@ const NavBar = () => {
     <i className="far fa-plus-square"></i>Add review
   </NavLink>
   )
+  const sellCarIcon = (
+    <NavLink
+    className={styles.NavLink}
+    activeClassName={styles.Active}
+    to="/market/create"
+  >
+    <i className="far fa-plus-square"></i>Sell car
+  </NavLink>
+  )
   const loggedInIcons = <>
         <NavLink
         className={styles.NavLink}
@@ -39,6 +48,13 @@ const NavBar = () => {
         to="/reviewsfeed"
       >
         <i className="fas fa-stream"></i>Reviews
+      </NavLink>
+      <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/marketfeed"
+      >
+        <i className="fas fa-cart-arrow-down"></i>Market
       </NavLink>
       <NavLink
         className={styles.NavLink}
@@ -96,6 +112,7 @@ const NavBar = () => {
           </Navbar.Brand>
         </NavLink>
         {currentUser && addReviewIcon}
+        {currentUser && sellCarIcon}
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
