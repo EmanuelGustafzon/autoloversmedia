@@ -269,7 +269,7 @@ const textFields = (
 <Form.Group>
               <Form.Label>price</Form.Label>
               <Form.Control
-                type='number'
+                type='text'
                 name="price"
                 value={price}
                 className={styles.Input}

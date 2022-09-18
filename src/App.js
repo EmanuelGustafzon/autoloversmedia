@@ -7,6 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import ReviewCreateForm from "./pages/reviews/ReviewCreateForm";
 import MarketCreateForm from "./pages/market/MarketCreateForm";
+import ReviewPage from "./pages/reviews/ReviewPage";
 
 
 
@@ -22,6 +23,7 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm/>} />
           <Route exact path="/signup" render={() => <SignUpForm/>} />
           <Route exact path="/review/create" render={() => <ReviewCreateForm/>} />
+          <Route exact path="/review/:id" render={() => <ReviewPage />} />
           <Route exact path="/market/create" render={() => <MarketCreateForm/>} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
