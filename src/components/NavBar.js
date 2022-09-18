@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Container, Nav } from "react-bootstrap";
+import { Navbar, NavDropdown, Container, Nav } from "react-bootstrap";
 import logo from'../assets/logo.auto.png';
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
@@ -23,24 +23,33 @@ const NavBar = () => {
     }
   };
 
-  const addReviewIcon = (
-    <NavLink
-    className={styles.NavLink}
-    activeClassName={styles.Active}
-    to="/review/create"
-  >
-    <i className="far fa-plus-square"></i>Add review
-  </NavLink>
-  )
-  const sellCarIcon = (
-    <NavLink
-    className={styles.NavLink}
-    activeClassName={styles.Active}
-    to="/market/create"
-  >
-    <i className="far fa-plus-square"></i>Sell car
-  </NavLink>
-  )
+const addPostIcon = <>
+<NavDropdown  title={<span><i className="far fa-plus-square"></i></span>}  id="basic-nav-dropdown">
+<NavDropdown.Item>
+<NavLink
+className={styles.NavLink}
+to="/review/create"
+>
+<i className="far fa-plus-square"></i> Write review
+</NavLink>
+</NavDropdown.Item>
+<NavDropdown.Item>
+<NavLink
+className={styles.NavLink}
+to="/market/create">
+  
+  <i className="far fa-plus-square"></i>Sell car
+</NavLink>
+</NavDropdown.Item>
+</NavDropdown>
+
+</>
+  
+
+
+
+
+
   const loggedInIcons = <>
         <NavLink
         className={styles.NavLink}
@@ -108,11 +117,11 @@ const NavBar = () => {
       <Container>
         <NavLink to="/">
           <Navbar.Brand>
-            <img src={logo} alt="logo" height="65" />
+            <img src={logo} alt="logo" height="50" />
           </Navbar.Brand>
         </NavLink>
-        {currentUser && addReviewIcon}
-        {currentUser && sellCarIcon}
+        {currentUser && addPostIcon}
+
         <Navbar.Toggle
           ref={ref}
           onClick={() => setExpanded(!expanded)}
