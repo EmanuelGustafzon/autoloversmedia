@@ -20,25 +20,31 @@ import { useHistory } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 
-function ReviewCreateForm() {
+function MarketCreateForm() {
 
   const [errors, setErrors] = useState({});
 
-  const [ReviewData, setReviewData] = useState({
+  const [MarketData, setMarketData] = useState({
+    country: '',
+    city: '',
     brand: '',
     image: '',
     model: '',
     model_year: '',
-    pros: '',
-    cons: '',
+    facilities: '',
+    problems: '',
+    description: '',
+    price: '',
+    phone: '',
+    email: '',
   });
-  const { brand, image, model, model_year, pros, cons } = ReviewData;
+  const { country, city, brand, image, model, model_year, facilities, problems, description, price, phone, email } = MarketData;
   const imageInput = useRef();
   const history = useHistory();
 
   const handleChange = (event) => {
-    setReviewData({
-      ...ReviewData,
+    setMarketData({
+      ...MarketData,
       [event.target.name]: event.target.value,
     });
   };
@@ -46,8 +52,8 @@ function ReviewCreateForm() {
   const handleChangeImage = (event) => {
     if (event.target.files.length) {
       URL.revokeObjectURL(image);
-      setReviewData({
-        ...ReviewData,
+      setMarketData({
+        ...MarketData,
         image: URL.createObjectURL(event.target.files[0]),
       });
     }
@@ -57,25 +63,63 @@ function ReviewCreateForm() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
+    formData.append('country', country)
+    formData.append('city', city)
     formData.append('brand', brand)
     formData.append('image', imageInput.current.files[0])
     formData.append('model', model)
     formData.append('model_year', model_year)
-    formData.append('pros', pros)
-    formData.append('cons', cons);
+    formData.append('facilities', facilities)
+    formData.append('problems', problems);
+    formData.append('description', description);
+    formData.append('price', price);
+    formData.append('phone', phone);
+    formData.append('email', email);
     try {
-      const { data } = await axiosReq.post("/review/", formData);
-      history.push(`/review/${data.id}`);
+      const { data } = await axiosReq.post("/market/", formData);
+      history.push(`/market/${data.id}`);
     } catch (err) {
       console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data)
     }
   }
-  };
-
-  const textFields = (
+}
+const textFields = (
     <div className="text-center">
+
+<Form.Group>
+              <Form.Label>country</Form.Label>
+              <Form.Control
+                type="text"
+                name="country"
+                value={country}
+                className={styles.Input}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.country?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+              <Form.Label>city</Form.Label>
+              <Form.Control
+                type="text"
+                name="city"
+                value={city}
+                className={styles.Input}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.city?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      
 
       <Form.Group>
               <Form.Label>Brand</Form.Label>
@@ -156,6 +200,9 @@ function ReviewCreateForm() {
           {message}
         </Alert>
       ))}
+
+      
+      
             <Form.Group>
               <Form.Label>Model</Form.Label>
               <Form.Control
@@ -174,7 +221,7 @@ function ReviewCreateForm() {
            <Form.Group>
               <Form.Label>model year</Form.Label>
               <Form.Control
-                type="text"
+                type="number"
                 name="model_year"
                 value={model_year}
                 className={styles.Input}
@@ -187,33 +234,80 @@ function ReviewCreateForm() {
         </Alert>
       ))}
             <Form.Group>
-              <Form.Label>Pros</Form.Label>
+              <Form.Label>facilities</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={6}
-                name="pros"
-                value={pros}
+                name="facilities"
+                value={facilities}
                 className={styles.Input}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors?.pros?.map((message, idx) => (
+            {errors?.facilities?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
       ))}
             <Form.Group>
-              <Form.Label>Cons</Form.Label>
+              <Form.Label>Problems with the car</Form.Label>
               <Form.Control
                 as="textarea"
                 rows={6}
-                name="cons"
-                value={cons}
+                name="problems"
+                value={problems}
                 className={styles.Input}
                 onChange={handleChange}
               />
             </Form.Group>
-            {errors?.cons?.map((message, idx) => (
+            {errors?.problems?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+              <Form.Label>price</Form.Label>
+              <Form.Control
+                type='number'
+                name="price"
+                value={price}
+                className={styles.Input}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.price?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+      <Form.Group>
+              <Form.Label>Phone number:</Form.Label>
+              <Form.Control
+                type='number'
+                name="phone"
+                value={phone}
+                className={styles.Input}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.phone?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
+
+<Form.Group>
+              <Form.Label>Email Address:</Form.Label>
+              <Form.Control
+                type='text'
+                name="email"
+                value={email}
+                className={styles.Input}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.email?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
           {message}
         </Alert>
@@ -288,4 +382,4 @@ function ReviewCreateForm() {
   );
 }
 
-export default ReviewCreateForm;
+export default MarketCreateForm;
