@@ -4,6 +4,7 @@ import styles from'../../styles/Review.module.css'
 import { Card, Col, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from '../../api/axiosDefaults';
 
 const Review = (props) => {
 
@@ -23,10 +24,44 @@ const Review = (props) => {
     image,
     updated_on,
     ReviewPage,
+    setReview,
   } = props;
 
   const currentUser = useCurrentUser();
   const is_owner = currentUser?.username === owner
+  
+  const handleLike = async () => {
+    try {
+      const { data } = await axiosRes.post("/likes/", { review: id });
+      setReview((prevReview) => ({
+        ...prevReview,
+        results: prevReview.results.map((review) => {
+          return review.id === id
+            ? { ...review, likes_count: review.likes_count + 1, like_id: data.id }
+            : review;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleUnlike = async () => {
+    try {
+      await axiosRes.delete(`/likes/${like_id}/`);
+      setReview((prevPosts) => ({
+        ...prevPosts,
+        results: prevPosts.results.map((review) => {
+          return review.id === id
+            ? { ...review, likes_count: review.likes_count - 1, like_id: null }
+            : review;
+        }),
+      }));
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <Card className={styles.Review}>
     <Card.Body>
@@ -68,11 +103,12 @@ const Review = (props) => {
             <i className="far fa-heart" />
           </OverlayTrigger>
         ) : like_id ? (
-          <span onClick={() => {}}>
+          <span onClick={handleUnlike}>
             <i className={`fas fa-heart ${styles.Heart}`} />
           </span>
         ) : currentUser ? (
-          <span onClick={() => {}}>
+
+          <span onClick={handleLike}>
             <i className={`far fa-heart ${styles.HeartOutline}`} />
           </span>
         ) : (
