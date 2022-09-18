@@ -1,0 +1,25 @@
+.Review {
+    background-color: #ECDD7B;
+    box-shadow: 1px 3px 10px 1px  #7CA7CB;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #303036;
+  }
+  
+  .Review figure,
+  h5 {
+    margin: 0 0;
+  }
+  
+  .Heart {
+    color: #f85032;
+  }
+  
+  .Heart:hover {
+    color: #2142b2;
+  }
+  
+  .HeartOutline:hover {
+    color: #f85032;
+  }

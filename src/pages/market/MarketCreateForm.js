@@ -70,11 +70,11 @@ function MarketCreateForm() {
     formData.append('model', model)
     formData.append('model_year', model_year)
     formData.append('facilities', facilities)
-    formData.append('problems', problems);
-    formData.append('description', description);
-    formData.append('price', price);
-    formData.append('phone', phone);
-    formData.append('email', email);
+    formData.append('problems', problems)
+    formData.append('description', description)
+    formData.append('price', price)
+    formData.append('phone', phone)
+    formData.append('email', email)
     try {
       const { data } = await axiosReq.post("/market/", formData);
       history.push(`/market/${data.id}`);
@@ -221,7 +221,7 @@ const textFields = (
            <Form.Group>
               <Form.Label>model year</Form.Label>
               <Form.Control
-                type="number"
+                type="text"
                 name="model_year"
                 value={model_year}
                 className={styles.Input}
@@ -284,7 +284,7 @@ const textFields = (
       <Form.Group>
               <Form.Label>Phone number:</Form.Label>
               <Form.Control
-                type='number'
+                type='text'
                 name="phone"
                 value={phone}
                 className={styles.Input}
@@ -318,7 +318,7 @@ const textFields = (
       >
         cancel
       </Button>
-      <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+      <Button className={`${btnStyles.Button}`} type="submit">
         create
       </Button>
     </div>
