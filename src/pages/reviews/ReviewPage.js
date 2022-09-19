@@ -8,10 +8,15 @@ import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Review from "./Review";
+import CommentCreateForm from "../comments/CommentCreateForm";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ReviewPage() {
   const { id } = useParams();
   const [review, setReview] = useState({ results: [] });
+  const currentUser = useCurrentUser();
+  const profile_image = currentUser?.profile_image;
+  const [comments, setComments] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -36,7 +41,17 @@ function ReviewPage() {
         <p>Popular profiles for mobile</p>
         <Review {...review.results[0]} setReview={setReview}/>
         <Container className={appStyles.Content}>
-          Comments
+          {currentUser ? (
+  <CommentCreateForm
+  profile_id={currentUser.profile_id}
+  profileImage={profile_image}
+  review={id}
+  setReview={setReview}
+  setComments={setComments}
+/>
+) : comments.results.length ? (
+  "Comments"
+) : null}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
