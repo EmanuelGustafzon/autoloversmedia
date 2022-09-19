@@ -265,7 +265,22 @@ const textFields = (
           {message}
         </Alert>
       ))}
-
+<Form.Group>
+              <Form.Label>Description</Form.Label>
+              <Form.Control
+                as="textarea"
+                rows={6}
+                name="description"
+                value={description}
+                className={styles.Input}
+                onChange={handleChange}
+              />
+            </Form.Group>
+            {errors?.description?.map((message, idx) => (
+        <Alert variant="warning" key={idx}>
+          {message}
+        </Alert>
+      ))}
 <Form.Group>
               <Form.Label>price</Form.Label>
               <Form.Control

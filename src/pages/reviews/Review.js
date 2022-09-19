@@ -1,7 +1,7 @@
 import React from 'react'
-import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from'../../styles/Review.module.css'
-import { Card, Col, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useCurrentUser } from '../../contexts/CurrentUserContext';
+import { Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from '../../api/axiosDefaults';
@@ -49,9 +49,9 @@ const Review = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
-      setReview((prevPosts) => ({
-        ...prevPosts,
-        results: prevPosts.results.map((review) => {
+      setReview((prevReview) => ({
+        ...prevReview,
+        results: prevReview.results.map((review) => {
           return review.id === id
             ? { ...review, likes_count: review.likes_count - 1, like_id: null }
             : review;
@@ -76,6 +76,7 @@ const Review = (props) => {
         </div>
       </Media>
     </Card.Body>
+
     <Link to={`/review/${id}`}>
       <Card.Img src={image} alt={brand} />
     </Link>
