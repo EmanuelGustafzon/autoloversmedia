@@ -44,24 +44,25 @@ function ReviewPage() {
         <Review {...review.results[0]} setReview={setReview}/>
         <Container className={appStyles.Content}>
           {currentUser ? (
-  <CommentCreateForm
-  profile_id={currentUser.profile_id}
-  profileImage={profile_image}
-  review={id}
-  setReview={setReview}
-  setComments={setComments}
-/>
-) : comments.results.length ? (
-  "Comments"
-) : null}
-{comments.results.length ? (
-  comments.results.map(comment => (
-    <Comment key={comment.id} {...comment} />
-  ))
-) : currentUser ? (
-  <span>No comments yet, be the first to comment!</span>)
-: ( <span> No comments... yet</span>
-)}
+            <CommentCreateForm
+              profile_id={currentUser.profile_id}
+              profileImage={profile_image}
+              review={id}
+              setReview={setReview}
+              setComments={setComments}
+            />
+          ) : comments.results.length ? (
+            "Comments"
+          ) : null}
+          {comments.results.length ? (
+            comments.results.map((comment) => (
+              <Comment key={comment.id} {...comment} />
+            ))
+          ) : currentUser ? (
+            <span>No comments yet, be the first to comment!</span>
+          ) : (
+            <span>No comments... yet</span>
+          )}
         </Container>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
