@@ -28,7 +28,7 @@ function ReviewPage() {
           axiosReq.get(`/comments/?review=${id}`)
         ]);
         setReview({ results: [review] });
-                setComments(comments);
+        setComments(comments);
         console.log(review);
       } catch (err) {
         console.log(err);
