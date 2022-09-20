@@ -24,7 +24,7 @@ const Review = (props) => {
     image,
     updated_on,
     ReviewPage,
-    setReview,
+    setReviews,
   } = props;
 
   const currentUser = useCurrentUser();
@@ -33,7 +33,7 @@ const Review = (props) => {
   const handleLike = async () => {
     try {
       const { data } = await axiosRes.post("/likes/", { review: id });
-      setReview((prevReview) => ({
+      setReviews((prevReview) => ({
         ...prevReview,
         results: prevReview.results.map((review) => {
           return review.id === id
@@ -49,7 +49,7 @@ const Review = (props) => {
   const handleUnlike = async () => {
     try {
       await axiosRes.delete(`/likes/${like_id}/`);
-      setReview((prevReview) => ({
+      setReviews((prevReview) => ({
         ...prevReview,
         results: prevReview.results.map((review) => {
           return review.id === id

@@ -9,12 +9,13 @@ import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 import Review from "./Review";
 import CommentCreateForm from "../comments/CommentCreateForm";
-import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import Comment from '../comments/Comment'
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 function ReviewPage() {
   const { id } = useParams();
   const [review, setReview] = useState({ results: [] });
+
   const currentUser = useCurrentUser();
   const profile_image = currentUser?.profile_image;
   const [comments, setComments] = useState({ results: [] });
@@ -22,11 +23,12 @@ function ReviewPage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: review }, {data: comments}] = await Promise.all([
+        const [{ data: review }, {data: comments}]  = await Promise.all([
           axiosReq.get(`/review/${id}`),
           axiosReq.get(`/comments/?review=${id}`)
         ]);
         setReview({ results: [review] });
+                setComments(comments);
         console.log(review);
       } catch (err) {
         console.log(err);
@@ -41,7 +43,7 @@ function ReviewPage() {
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <p>Popular profiles for mobile</p>
-        <Review {...review.results[0]} setReview={setReview}/>
+        <Review {...review.results[0]} setReviews={setReview} ReviewPage />
         <Container className={appStyles.Content}>
           {currentUser ? (
             <CommentCreateForm
