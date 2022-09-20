@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from "react";
+import CommentEditForm from "./CommentEditForm";
 import { Media, OverlayTrigger, Tooltip } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import Avatar from "../../components/Avatar";
@@ -21,6 +22,7 @@ const Comment = (props) => {
       setReview,
       setComments } = props;
 
+    const [showEditForm, setShowEditForm] = useState(false);
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
 
@@ -73,17 +75,28 @@ const Comment = (props) => {
         }
       };
     
-  return (
-    <div>
-        <hr/>
-        <Media>
+      return (
+        <>
+      <hr />
+      <Media>
         <Link to={`/profiles/${profile_id}`}>
-          <Avatar src={profile_image} height={55} />
+          <Avatar src={profile_image} />
         </Link>
         <Media.Body className="align-self-center ml-2">
-        <span className={styles.Owner}>{owner}</span>
-        <span className={styles.Date}>{updated_on}</span>
-        <p>{content}</p>
+          <span className={styles.Owner}>{owner}</span>
+          <span className={styles.Date}>{updated_on}</span>
+          {showEditForm ? (
+            <CommentEditForm
+      id={id}
+      profile_id={profile_id}
+      content={content}
+      profileImage={profile_image}
+      setComments={setComments}
+      setShowEditForm={setShowEditForm}
+    />
+          ) : (
+            <p>{content}</p>
+          )}
 
         {is_owner ? (
           <OverlayTrigger
@@ -112,13 +125,15 @@ const Comment = (props) => {
         {commentlikes_count}
 
         </Media.Body>
-        {is_owner && (
-          <MoreDropdown 
-         handleEdit={() => {}} handleDelete={handleDelete} />
+        {is_owner && !showEditForm && (
+          <MoreDropdown
+            handleEdit={() => setShowEditForm(true)}
+            handleDelete={handleDelete}
+          />
         )}
-        </Media>
-    </div>
-  )
+      </Media>
+    </>
+  );
 }
 
 export default Comment
