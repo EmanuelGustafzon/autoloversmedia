@@ -5,6 +5,7 @@ import Avatar from "../../components/Avatar";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
 import styles from '../../styles/Comment.module.css'
 import { axiosRes } from '../../api/axiosDefaults';
+import { MoreDropdown } from '../../components/MoreDropdown';
 
 
 const Comment = (props) => {
@@ -17,11 +18,29 @@ const Comment = (props) => {
       owner, 
       updated_on, 
       content,
+      setReview,
       setComments } = props;
 
     const currentUser = useCurrentUser();
     const is_owner = currentUser?.username === owner
 
+    const handleDelete = async () => {
+      try {
+        await axiosRes.delete(`/comments/${id}/`);
+        setReview(prevReview => ({
+          results: [{
+            ...prevReview.results[0],
+            comments_count: prevReview.results[0].comments_count - 1
+          }]
+        })) 
+        setComments(prevComments => ({
+          ...prevComments,
+          results: prevComments.results.filter(comment => comment.id !== id )
+        }))
+      } catch (err) {
+        console.log(err);
+      }
+    };
     const handleLike = async () => {
         try {
           const { data } = await axiosRes.post("/commentlikes/", { comment: id });
@@ -33,6 +52,7 @@ const Comment = (props) => {
                 : comment;
             }),
           }));
+
         } catch (err) {
           console.log(err);
         }
@@ -44,7 +64,7 @@ const Comment = (props) => {
             ...prevComment,
             results: prevComment.results.map((comment) => {
               return comment.id === id
-                ? { ...Comment, commentlikes_count: comment.commentlikes_count - 1, commentlike_id: null }
+                ? { ...comment, commentlikes_count: comment.commentlikes_count - 1, commentlike_id: null }
                 : comment;
             }),
           }));
@@ -92,6 +112,10 @@ const Comment = (props) => {
         {commentlikes_count}
 
         </Media.Body>
+        {is_owner && (
+          <MoreDropdown 
+         handleEdit={() => {}} handleDelete={handleDelete} />
+        )}
         </Media>
     </div>
   )
