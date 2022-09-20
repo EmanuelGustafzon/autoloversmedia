@@ -15,6 +15,7 @@ import NoResults from "../../assets/no-results.png";
 import { useLocation } from "react-router";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
+import PopularProfiles from "../profiles/PopularProfiles";
 
 
 
@@ -25,7 +26,7 @@ function ReviewsPage({message, filter=''}) {
   const {pathname} = useLocation()
 
   const [query, setQuery] = useState("");
-  
+
   useEffect(() => {
     const fetchReviews = async () => {
         try {
@@ -50,7 +51,7 @@ function ReviewsPage({message, filter=''}) {
   return (
     <Row className="h-100">
       <Col className="py-2 p-0 p-lg-2" lg={8}>
-        <p>Popular profiles mobile</p>
+        <PopularProfiles mobile/>
         <i>className={`fas fa-search ${styles.SearchIcon}`}</i>
         <Form
           className={styles.SearchBar}
@@ -90,6 +91,9 @@ function ReviewsPage({message, filter=''}) {
             <Asset spinner />
           </Container>
         )}
+      </Col>
+      <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
+        <PopularProfiles />
       </Col>
     </Row>
   );
