@@ -25,6 +25,7 @@ function ReviewsPage({message, filter=''}) {
   const {pathname} = useLocation()
 
   const [query, setQuery] = useState("");
+  
   useEffect(() => {
     const fetchReviews = async () => {
         try {

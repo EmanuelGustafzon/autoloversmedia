@@ -10,6 +10,7 @@ import MarketCreateForm from "./pages/market/MarketCreateForm";
 import ReviewPage from "./pages/reviews/ReviewPage";
 import ReviewsPage from "./pages/reviews/ReviewsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import ReviewEditForm from "./pages/reviews/ReviewEditForm";
 
 
 
@@ -54,6 +55,7 @@ function App() {
           <Route exact path="/signin" render={() => <SignInForm/>} />
           <Route exact path="/signup" render={() => <SignUpForm/>} />
           <Route exact path="/review/create" render={() => <ReviewCreateForm/>} />
+          <Route exact path="/review/review/:id/edit" render={() => <ReviewEditForm/>} />
           <Route exact path="/review/:id" render={() => <ReviewPage />} />
           <Route exact path="/reviewsfeed" render={() => <ReviewsPage message='No results found. Adjust the search keyword' />} />
           <Route exact path="/market/create" render={() => <MarketCreateForm/>} />
