@@ -18,6 +18,7 @@ import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import MarketPage from "./pages/market/MarketPage";
 import MarketsPage from "./pages/market/MarketsPage";
 import MarketEditForm from "./pages/market/MarketEditForm";
+import NotFound from "./components/NotFound";
 
 
 function App() {
@@ -77,7 +78,7 @@ function App() {
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}/>
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
           <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />}/>
-          <Route render={() => <h2>Page not found!</h2>} />
+          <Route render={() => <NotFound/>} />
 
         </Switch>
       </Container>

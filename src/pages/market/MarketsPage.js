@@ -16,7 +16,7 @@ import { useLocation } from "react-router";
 import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 import PopularProfiles from "../profiles/PopularProfiles";
-
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 
 
 
@@ -24,7 +24,7 @@ function MarketsPage({message, filter=''}) {
   const [markets, setMarkets] = useState({results: [] });
   const [hasLoaded, setHasLoaded] = useState(false);
   const {pathname} = useLocation()
-
+  const currentUser = useCurrentUser();
   const [query, setQuery] = useState("");
 
   useEffect(() => {
@@ -46,7 +46,7 @@ function MarketsPage({message, filter=''}) {
     return () => {
       clearTimeout(timer);
     };
-  }, [filter, query, pathname]);
+  }, [filter, query, pathname, currentUser]);
 
   return (
     <Row className="h-100">
