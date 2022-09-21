@@ -85,6 +85,7 @@ const Review = (props) => {
           <Avatar src={profile_image} height={55} />
           {owner}
         </Link>
+        <h3>Review</h3>
         <div className="d-flex align-items-center">
           <span>{updated_on}</span>
           {is_owner && ReviewPage && (

@@ -112,20 +112,43 @@ function ProfilePage() {
               </Button>
             ))}
         </Col>
-        
-        {profile?.favorite_car_brand && <Col className="p-6">{profile.favorite_car_brand}</Col>}
-        {profile?.description && <Col className="p-3">{profile.description}</Col>}
-        {profile?.experience_with_cars && <Col className="p-3">{profile.experience_with_cars}</Col>}
-        {profile?.location && <Col className="p-3">{profile.location}</Col>}
+       
+        </Row>
+              <hr/>
+            <div><strong>Location: </strong>
 
-      </Row>
+            {profile?.location && profile.location}
+            </div>
+              <hr/>
+            <div><strong>favorite car: </strong>
+
+            {profile?.favorite_car_brand && profile.favorite_car_brand}
+            </div>
+              <hr/>
+            <div><strong>Experience: </strong>
+
+            {profile?.experience_with_cars && profile.experience_with_cars}
+            </div>
+            <hr/>
+
+            <div><strong>About me: </strong>
+
+            {profile?.description && profile.description}
+            </div>
+            <hr/>
+  
+
+
+
+
+
     </>
   );
 
   const mainProfilePosts = (
     <>
     <hr />
-      <p className="text-center">{profile?.owner}'s reviews</p>
+      <p className="text-center">{profile?.owner}'s reviews and advertisments</p>
       <hr />
       {profileReviews.results.length ? (
         <InfiniteScroll
@@ -156,7 +179,7 @@ function ProfilePage() {
       ) : ( 
         <Asset
           src={NoResults}
-          message={`No results found, ${profile?.owner} hasn't posted ant reviews yet.`}
+          message={`No results found, ${profile?.owner} has not posted and advertisments yet.`}
         />
       )}
     </>

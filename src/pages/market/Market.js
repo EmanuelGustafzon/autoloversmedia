@@ -56,7 +56,9 @@ const Market = (props) => {
           <Avatar src={profile_image} height={55} />
           {owner}
         </Link>
+        <h3>For sale</h3>
         <div className="d-flex align-items-center">
+
           <span>{updated_on}</span>
           {is_owner && MarketPage && (
               <MoreDropdown
@@ -73,12 +75,7 @@ const Market = (props) => {
     </Link>
     <Card.Body>
       <div className='row'>
-      <div className='col-4'>
-      country:{country && <Card.Title className="text-center">{country}</Card.Title>}
-      </div>
-      <div className='col-4'>
-      city:{city && <Card.Title className="text-center">{city}</Card.Title>}
-      </div>
+
         <div className='col-4'>
       Brand:{brand && <Card.Title className="text-center">{brand}</Card.Title>}
       </div>
@@ -87,6 +84,12 @@ const Market = (props) => {
       </div>
       <div className='col-4'>
       Year:{model_year && <Card.Title>{model_year}</Card.Title>}
+      </div>
+      <div className='col-6'>
+      country:{country && <Card.Title className="text-center">{country}</Card.Title>}
+      </div>
+      <div className='col-6'>
+      city:{city && <Card.Title className="text-center">{city}</Card.Title>}
       </div>
       </div>
 
