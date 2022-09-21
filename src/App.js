@@ -16,6 +16,7 @@ import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 import MarketPage from "./pages/market/MarketPage";
+import MarketsPage from "./pages/market/MarketsPage";
 
 
 function App() {
@@ -27,6 +28,13 @@ function App() {
       <NavBar/>
       <Container className={styles.Main}>
         <Switch>
+        <Route
+            exact
+            path="/marketfeed"
+            render={() => (
+              <MarketsPage message="No results found. Adjust the search keyword." />
+            )}
+          />
         <Route
             exact
             path="/"
