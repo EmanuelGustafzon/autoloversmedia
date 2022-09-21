@@ -15,6 +15,7 @@ import ProfilePage from "./pages/profiles/ProfilePage";
 import ProfileEditForm from "./pages/profiles/ProfileEditForm";
 import UsernameForm from "./pages/profiles/UsernameForm";
 import UserPasswordForm from "./pages/profiles/UserPasswordForm";
+import MarketPage from "./pages/market/MarketPage";
 
 
 function App() {
@@ -61,6 +62,7 @@ function App() {
           <Route exact path="/review/:id" render={() => <ReviewPage />} />
           <Route exact path="/reviewsfeed" render={() => <ReviewsPage message='No results found. Adjust the search keyword' />} />
           <Route exact path="/market/create" render={() => <MarketCreateForm/>} />
+          <Route exact path="/market/:id" render={() => <MarketPage />} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage/>} />
           <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}/>
           <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
