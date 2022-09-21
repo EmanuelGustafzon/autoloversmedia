@@ -58,13 +58,7 @@ to="/market/create">
       >
         <i className="fas fa-stream"></i>Reviews
       </NavLink>
-      <NavLink
-        className={styles.NavLink}
-        activeClassName={styles.Active}
-        to="/marketfeed"
-      >
-        <i className="fas fa-cart-arrow-down"></i>Market
-      </NavLink>
+
       <NavLink
         className={styles.NavLink}
         activeClassName={styles.Active}
@@ -137,6 +131,13 @@ to="/market/create">
             >
               <i className="fas fa-home"></i>Home
             </NavLink>
+            <NavLink
+        className={styles.NavLink}
+        activeClassName={styles.Active}
+        to="/marketfeed"
+      >
+        <i className="fas fa-cart-arrow-down"></i>Market
+      </NavLink>
 
             {currentUser ? loggedInIcons : loggedOutIcons}
           </Nav>
