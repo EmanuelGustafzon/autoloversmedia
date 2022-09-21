@@ -53,6 +53,7 @@ function MarketsPage({message, filter=''}) {
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <PopularProfiles mobile/>
         <i>className={`fas fa-search ${styles.SearchIcon}`}</i>
+        <h2>Cars for sale</h2>
         <Form
           className={styles.SearchBar}
           onSubmit={(event) => event.preventDefault()}

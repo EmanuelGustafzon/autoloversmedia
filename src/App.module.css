@@ -62,8 +62,11 @@
     transition: color ease-in-out 0.3s;
     color: #7CA7CB;
   }
-  h1, h2, h3 {
-    color:#7CA7CB;
+  h1, h2 {
+    color:#fafafa;
+  }
+  h3 {
+    color: #292A33;
   }
   p {
     color:292A33;

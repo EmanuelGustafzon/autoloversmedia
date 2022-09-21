@@ -21,6 +21,7 @@ import {
 import { Button, Image } from "react-bootstrap";
 import InfiniteScroll from "react-infinite-scroll-component";
 import Review from "../reviews/Review";
+import Market from "../market/Market";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
@@ -30,6 +31,7 @@ import { ProfileEditDropdown } from "../../components/MoreDropdown";
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
   const [profileReviews, setProfileReviews] = useState({ results: [] });
+  const [profileMarkets, setProfileMarkets] = useState({ results: [] });
   
   const currentUser = useCurrentUser();
   const { id } = useParams();
@@ -43,16 +45,18 @@ function ProfilePage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [{ data: pageProfile }, { data: profileReviews }] = 
+        const [{ data: pageProfile }, { data: profileReviews }, { data: profileMarkets }] = 
         await Promise.all([
           axiosReq.get(`/profiles/${id}/`),
           axiosReq.get(`/review/?owner__profile=${id}`),
+          axiosReq.get(`/market/?owner__profile=${id}`),
         ]);
         setProfileData((prevState) => ({
           ...prevState,
           pageProfile: { results: [pageProfile] },
         }));
         setProfileReviews(profileReviews);
+        setProfileMarkets(profileMarkets);
         setHasLoaded(true);
       } catch (err) {
         console.log(err);
@@ -76,7 +80,6 @@ function ProfilePage() {
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
-              
               <div>{profile?.reviews_count}</div>
               <div>reviews</div>
             </Col>
@@ -119,7 +122,7 @@ function ProfilePage() {
     </>
   );
 
-  const mainProfileReviews = (
+  const mainProfilePosts = (
     <>
     <hr />
       <p className="text-center">{profile?.owner}'s reviews</p>
@@ -133,8 +136,24 @@ function ProfilePage() {
           loader={<Asset spinner />}
           hasMore={!!profileReviews.next}
           next={() => fetchMoreData(profileReviews, setProfileReviews)}
+          />
+      ) : ( 
+        <Asset
+          src={NoResults}
+          message={`No results found, ${profile?.owner} hasn't posted ant reviews yet.`}
         />
-      ) : (
+      )}
+      {profileMarkets.results.length ? (
+        <InfiniteScroll
+          children={profileMarkets.results.map((market) => (
+            <Market key={market.id} {...market} setMarkets={setProfileMarkets} />
+          ))}
+          dataLength={profileMarkets.results.length}
+          loader={<Asset spinner />}
+          hasMore={!!profileMarkets.next}
+          next={() => fetchMoreData(profileMarkets, setProfileMarkets)}
+          />
+      ) : ( 
         <Asset
           src={NoResults}
           message={`No results found, ${profile?.owner} hasn't posted ant reviews yet.`}
@@ -151,7 +170,7 @@ function ProfilePage() {
           {hasLoaded ? (
             <>
               {mainProfile}
-              {mainProfileReviews}
+              {mainProfilePosts}
             </>
           ) : (
             <Asset spinner />
