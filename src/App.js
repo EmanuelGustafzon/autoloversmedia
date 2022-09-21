@@ -12,8 +12,9 @@ import ReviewsPage from "./pages/reviews/ReviewsPage";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
 import ReviewEditForm from "./pages/reviews/ReviewEditForm";
 import ProfilePage from "./pages/profiles/ProfilePage";
-
-
+import ProfileEditForm from "./pages/profiles/ProfileEditForm";
+import UsernameForm from "./pages/profiles/UsernameForm";
+import UserPasswordForm from "./pages/profiles/UserPasswordForm";
 
 
 function App() {
@@ -61,7 +62,11 @@ function App() {
           <Route exact path="/reviewsfeed" render={() => <ReviewsPage message='No results found. Adjust the search keyword' />} />
           <Route exact path="/market/create" render={() => <MarketCreateForm/>} />
           <Route exact path="/profiles/:id" render={() => <ProfilePage/>} />
+          <Route exact path="/profiles/:id/edit" render={() => <ProfileEditForm />}/>
+          <Route exact path="/profiles/:id/edit/username" render={() => <UsernameForm />} />
+          <Route exact path="/profiles/:id/edit/password" render={() => <UserPasswordForm />}/>
           <Route render={() => <h2>Page not found!</h2>} />
+
         </Switch>
       </Container>
     </div>

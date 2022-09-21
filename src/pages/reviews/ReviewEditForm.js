@@ -72,7 +72,6 @@ function ReviewEditForm() {
     if (imageInput?.current?.files[0]){
         formData.append('image', imageInput.current.files[0])
     }
-
     formData.append('model', model)
     formData.append('model_year', model_year)
     formData.append('pros', pros)

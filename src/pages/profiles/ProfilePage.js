@@ -24,6 +24,8 @@ import Review from "../reviews/Review";
 import { fetchMoreData } from "../../utils/utils";
 import NoResults from "../../assets/no-results.png";
 
+import { ProfileEditDropdown } from "../../components/MoreDropdown";
+
 
 function ProfilePage() {
   const [hasLoaded, setHasLoaded] = useState(false);
@@ -62,6 +64,7 @@ function ProfilePage() {
   const mainProfile = (
     <>
       <Row noGutters className="px-3 text-center">
+      {profile?.is_owner && <ProfileEditDropdown id={profile?.id} />}
         <Col lg={3} className="text-lg-left">
           <Image
             className={styles.ProfileImage}
@@ -73,6 +76,7 @@ function ProfilePage() {
           <h3 className="m-2">{profile?.owner}</h3>
           <Row className="justify-content-center no-gutters">
             <Col xs={3} className="my-2">
+              
               <div>{profile?.reviews_count}</div>
               <div>reviews</div>
             </Col>
@@ -99,13 +103,18 @@ function ProfilePage() {
             ) : (
               <Button
                 className={`${btnStyles.Button} `}
-                onClick={() => {}}
+                onClick={() => handleFollow(profile)}
               >
                 follow
               </Button>
             ))}
         </Col>
-        {profile?.content && <Col className="p-3">{profile.content}</Col>}
+        
+        {profile?.favorite_car_brand && <Col className="p-6">{profile.favorite_car_brand}</Col>}
+        {profile?.description && <Col className="p-3">{profile.description}</Col>}
+        {profile?.experience_with_cars && <Col className="p-3">{profile.experience_with_cars}</Col>}
+        {profile?.location && <Col className="p-3">{profile.location}</Col>}
+
       </Row>
     </>
   );
@@ -117,8 +126,8 @@ function ProfilePage() {
       <hr />
       {profileReviews.results.length ? (
         <InfiniteScroll
-          children={profileReviews.results.map((post) => (
-            <Review key={Review.id} {...Review} setReviews={setProfileReviews} />
+          children={profileReviews.results.map((review) => (
+            <Review key={review.id} {...review} setReviews={setProfileReviews} />
           ))}
           dataLength={profileReviews.results.length}
           loader={<Asset spinner />}
