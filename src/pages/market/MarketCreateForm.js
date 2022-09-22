@@ -12,7 +12,7 @@ import Asset from "../../components/Assets";
 
 import Upload from "../../assets/upload.png";
 
-import styles from "../../styles/ReviewCreateEditForm.module.css";
+import styles from "../../styles/MarketReviewCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
 
@@ -283,7 +283,7 @@ const textFields = (
         </Alert>
       ))}
 <Form.Group>
-              <Form.Label>price</Form.Label>
+              <Form.Label>Price in Euro</Form.Label>
               <Form.Control
                 type='text'
                 name="price"

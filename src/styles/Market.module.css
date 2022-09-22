@@ -1,0 +1,14 @@
+.Market {
+    background-color: #7CA7CB;
+    box-shadow: 1px 3px 10px 1px  #7CA7CB;
+    border-radius: 2px;
+    margin-bottom: 16px;
+    text-align: center;
+    color: #303036;
+  }
+  
+  .Market figure,
+  h5 {
+    margin: 0 0;
+  }
+  

@@ -162,8 +162,8 @@ function ProfilePage() {
           />
       ) : ( 
         <Asset
-          src={NoResults}
-          message={`No results found, ${profile?.owner} hasn't posted ant reviews yet.`}
+
+          message={`When ${profile?.owner} post a review it will display here.`}
         />
       )}
       {profileMarkets.results.length ? (
@@ -179,7 +179,7 @@ function ProfilePage() {
       ) : ( 
         <Asset
           src={NoResults}
-          message={`No results found, ${profile?.owner} has not posted and advertisments yet.`}
+          message={`When ${profile?.owner} is adding a car to the market it will display here.`}
         />
       )}
     </>

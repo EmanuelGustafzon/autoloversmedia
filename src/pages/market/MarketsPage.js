@@ -9,7 +9,7 @@ import Market from "./Market";
 import Asset from "../../components/Assets";
 
 import appStyles from "../../App.module.css";
-import styles from "../../styles/ReviewsPage.module.css";
+import styles from "../../styles/SearchBar.module.css";
 import { axiosReq } from "../../api/axiosDefaults";
 import NoResults from "../../assets/no-results.png";
 import { useLocation } from "react-router";
