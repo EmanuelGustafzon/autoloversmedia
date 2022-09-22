@@ -1,70 +1,125 @@
-# Getting Started with Create React App
+# Autolovers API
+Autolovers is the backend, the api for the webiste Autolovers Media. As you can hear it is a site for people who loves cars. It is a social media platform where users can review cars and share with the community. A user can create reviews, like and comment reviews, like comments, follow each other and even advertise cars for sale. This api is built with Django and django restframework.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Press at this link https://autolovers.herokuapp.com/ to see the deployed api. by adding the app name in the end of the url you can access the json data for each app. For example https://autolovers.herokuapp.com/review
 
-## Available Scripts
+## Ux Design
 
-In the project directory, you can run:
+### Site purpose
+The purpose of this site is for people who loves cars to learn more by reading reviews and help other to learn more about cars by writing reviews. Users can even sell cars.
 
-### `npm start`
+### Audience
+This site is for anyone who are intrested in cars or maybe even not that intrested but are about to buy a car and want some more information. I imagine people who has a driving licance wants to visit the site so people from age 18 and up. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Communication
+I wanted a layout to communicate action and taht is why I have the yellow color combined with black mostly on the website.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## agile methodology
 
-### `npm test`
+## Logged in vs Logged out user
+As a logged out user you can view reviews and market and as a logged in user you can create, edit and delete reviews and advertisments of your car. You can follow other users and see your followers reviews. You can like reviews, create, edit and delete comments and like comments.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+### Login
+ ![feature login](/assets/images/IMG-2640)
+### Register
+ ![feature signup](/assets/images/IMG-2641)
+### home page
+ ![feature home](/assets/images/IMG-2643)
+ ### Market page
+ ![feature home](/assets/images/IMG-2642)
+  ### Review page
+ ![feature home](/assets/images/IMG-2646)
+   ### Navbar
+ ![feature home](/assets/images/IMG-2644)
+  ### most popular profiles
+ ![feature home](/assets/images/IMG-2644)
+   ### Create review
+ ![feature home](/assets/images/IMG-2644)
+   ### Sell car
+ ![feature home](/assets/images/IMG-2650)
+   ### Update and delete car for sale and review. 
+ ![feature home](/assets/images/IMG-2653)
+   ### Update comment, update, delete, and like comments
+ ![feature home](/assets/images/IMG-2656)
+   ### Update profile, username and password and follow and unfollow profile.
+ ![feature home](/assets/images/IMG-2656)
+   ### See a profiles reviews and ads.
+ ![feature home](/assets/images/IMG-2652)
+ 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Manuel testing
+  - Test that unlogged in users cannot create a review or market.
+  - Test that users who are not owner of a review or advertisments can edit the review or market.
+  - Test that users who are not the owner of a comment can edit a comment.
+  - Test that users cannot like its own review or comment.
+  - Test that users can not edit someone elses profile.
+  - Test that users can register, login and logout saftly and without errors.
+  - Test that users create, read, update and delete reviews, advertisments and comments without errors.
+  - Test that the infinite scroll is working for reviews, advertisments and comments. 
+  - Test like button for reviews and comments.
+  - Test refreshtokens so users can stay logged in for 24 hours.
+  - Test that the database is updating correctly accoring to users interactions on the page. 
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Lighthouse
+ ![lighthouse](/assets/images/lighthouse)
 
-### `npm run eject`
+## Problems with testing
+Because of poor knowledge of how to use Eslint it caused a problem in the gitpod workspace because node_modules in the project folder. I would like to fix this and do a proper test but as I did not have any tutor hours left for the week I could not. This also affect the test for css. There is a style folder with a color hex number with a # left out wich leads to an error. I fixed this but because of the propblem with Eslint i cannot redeploy the site at heroku. 
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Technolgy used
+  - HTML5
+  - CSS3
+  - JavaScript
+  - Python 
+  - SQL - Postgres
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Frameworks, Libraries & Programs Used
+  - Font Awesome
+  - Gitpod and GitHub
+  - Favicon
+  - Django
+  - React-Bootsrtap
+  - ReactJs
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Reusage of components
+  - Asset.js includes a loading spinner that is placed on several pages.
+  - axiosDefaults.js is a component reused on several pages to communicate with the backend.
+  - MoreDropDown.js is reused on reviews and market ads, comments and profiles to update and delete.
+  - CurrentUserContet.js is used on the pages where loggedout users are not allowed to access. The components confirms that the user is logged in.
+  - ProfileDataContext.js is used for users to follow and unfollow profiles on several pages.
+  - useRedirect.js redrect users to another page if they are not authorised to be there.
+  - utils.js is used to enable users to use the infinite scroll function on reviews, comments and market.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## bugs
+- I had problems with logging out from the page, this was fixed by adding a logout view in the api.
 
-## Learn More
+## unfixed bugs
+- As I already have written, a bug appeared in the last moment when trying to use EsHint.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Gitpod workspace was used for this project.
+- In the workspace I installed React.js by the comands: npx create-react-app . --use-npm and then npm start to see the preview.
+- Installed the packages I needed with the commands npm install:
+  - react-bootstrap@1.6.3 bootstrap@4.6.0
+  - react-router-dom@5.3.0
+  - axios
+  - react-infinite-scroll-component
+  - msw --save-dev
+  - jwt-decode
+- Push all the changes to github with git add . && git commit -m 'commit' and finaly git push.
+- Connect the react app with the backend in heroku by adding Key: CLIENT_ORIGIN | Value: https://react-app-name.herokuapp.com and Key: CLIENT_ORIGIN_DEV | Value: https://gitpod-browser-link.ws-eu54.gitpod.io in the config vars.
+- Add axiosDefaults.js and connect to the backend.
+- Add "heroku-prebuild": "npm install -g serve", in package.json 
+- Add procfile with following code: web: serve -s build.
+- Finally push all the changes to GitHub and go to heroku and deploy the site. 
 
-### Code Splitting
+## Credits
+- Code Institute documentation was used for the project.
+- Support from the tutors and slack.
+- Stackoverflow and diffchecker. 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
