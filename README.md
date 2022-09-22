@@ -22,31 +22,31 @@ As a logged out user you can view reviews and market and as a logged in user you
 ## Features
 
 ### Login
- ![feature login](/assets/images/IMG-2640)
+ ![feature login](src/assets/images/IMG-2640)
 ### Register
- ![feature signup](/assets/images/IMG-2641)
+ ![feature signup](src/assets/images/IMG-2641)
 ### home page
- ![feature home](/assets/images/IMG-2643)
+ ![feature home](src/assets/images/IMG-2643)
  ### Market page
- ![feature home](/assets/images/IMG-2642)
+ ![feature market](src/assets/images/IMG-2642)
   ### Review page
- ![feature home](/assets/images/IMG-2646)
+ ![feature review](src/assets/images/IMG-2646)
    ### Navbar
- ![feature home](/assets/images/IMG-2644)
+ ![feature navbar](src/assets/images/IMG-2644)
   ### most popular profiles
- ![feature home](/assets/images/IMG-2644)
+ ![feature popular profiles](src/assets/images/IMG-2644)
    ### Create review
- ![feature home](/assets/images/IMG-2644)
+ ![feature review](src/assets/images/IMG-2644)
    ### Sell car
- ![feature home](/assets/images/IMG-2650)
+ ![feature sell car](src/assets/images/IMG-2650)
    ### Update and delete car for sale and review. 
- ![feature home](/assets/images/IMG-2653)
+ ![feature update review](src/assets/images/IMG-2653)
    ### Update comment, update, delete, and like comments
- ![feature home](/assets/images/IMG-2656)
+ ![feature comments](src/assets/images/IMG-2656)
    ### Update profile, username and password and follow and unfollow profile.
- ![feature home](/assets/images/IMG-2656)
+ ![feature profile](src/assets/images/IMG-2656)
    ### See a profiles reviews and ads.
- ![feature home](/assets/images/IMG-2652)
+ ![feature profile](src/assets/images/IMG-2652)
  
 
 
@@ -64,7 +64,7 @@ As a logged out user you can view reviews and market and as a logged in user you
   - Test that the database is updating correctly accoring to users interactions on the page. 
 
 ## Lighthouse
- ![lighthouse](/assets/images/lighthouse)
+ ![lighthouse](src/assets/images/lighthouse)
 
 ## Problems with testing
 Because of poor knowledge of how to use Eslint it caused a problem in the gitpod workspace because node_modules in the project folder. I would like to fix this and do a proper test but as I did not have any tutor hours left for the week I could not. This also affect the test for css. There is a style folder with a color hex number with a # left out wich leads to an error. I fixed this but because of the propblem with Eslint i cannot redeploy the site at heroku. 
