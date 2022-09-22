@@ -51,7 +51,7 @@ function MarketEditForm() {
             const {country, city, brand, model, model_year, image, facilities, problems, description, price, phone, email, is_owner} = data
             is_owner ? setMarketData({country, city, brand, model, model_year, image, facilities, problems, description, price, phone, email, is_owner}) : history.push('/')
         } catch (err) {
-            console.log(err);
+
         }
     }
     handleMount();
@@ -96,7 +96,7 @@ function MarketEditForm() {
         await axiosReq.put(`/market/${id}/`, formData);
         history.push(`/market/${id}`);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
         if (err.response?.status !== 401) {
           setErrors(err.response?.data)
       }

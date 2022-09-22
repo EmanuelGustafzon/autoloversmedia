@@ -22,7 +22,7 @@ function MarketPage() {
         setMarket({ results: [market] });
         console.log(market);
       } catch (err) {
-        console.log(err);
+       // console.log(err);
       }
     };
 

@@ -35,7 +35,7 @@ function ReviewPage() {
         setComments(comments);
         console.log(review);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
 

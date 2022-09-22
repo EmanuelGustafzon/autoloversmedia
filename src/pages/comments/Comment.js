@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import CommentEditForm from "./CommentEditForm";
-import { Media, OverlayTrigger, Tooltip } from 'react-bootstrap'
+import Media from 'react-bootstrap/Media'
+import OverlayTrigger from 'react-bootstrap/OverlayTrigger'
+import Tooltip from 'react-bootstrap/Tooltip'
 import { Link } from 'react-router-dom'
 import Avatar from "../../components/Avatar";
 import { useCurrentUser } from '../../contexts/CurrentUserContext';
@@ -40,7 +42,7 @@ const Comment = (props) => {
           results: prevComments.results.filter(comment => comment.id !== id )
         }))
       } catch (err) {
-        console.log(err);
+       // console.log(err);
       }
     };
     const handleLike = async () => {
@@ -56,7 +58,7 @@ const Comment = (props) => {
           }));
 
         } catch (err) {
-          console.log(err);
+         // console.log(err);
         }
       };
       const handleUnlike = async () => {
@@ -71,7 +73,7 @@ const Comment = (props) => {
             }),
           }));
         } catch (err) {
-          console.log(err);
+         // console.log(err);
         }
       };
     

@@ -34,7 +34,7 @@ function MarketsPage({message, filter=''}) {
             setMarkets(data)
             setHasLoaded(true)
         } catch (err) {
-            console.log(err)
+           // console.log(err)
         }
     }
 

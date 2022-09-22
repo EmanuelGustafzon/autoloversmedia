@@ -59,7 +59,7 @@ function ProfilePage() {
         setProfileMarkets(profileMarkets);
         setHasLoaded(true);
       } catch (err) {
-        console.log(err);
+        // console.log(err);
       }
     };
     fetchData();
@@ -162,7 +162,7 @@ function ProfilePage() {
           />
       ) : ( 
         <Asset
-
+        src={NoResults}
           message={`When ${profile?.owner} post a review it will display here.`}
         />
       )}

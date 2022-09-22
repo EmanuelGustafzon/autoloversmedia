@@ -42,7 +42,7 @@ const Review = (props) => {
       await axiosRes.delete(`/review/${id}/`);
       history.goBack();
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
   const handleLike = async () => {
@@ -57,7 +57,7 @@ const Review = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 
@@ -73,7 +73,7 @@ const Review = (props) => {
         }),
       }));
     } catch (err) {
-      console.log(err);
+      // console.log(err);
     }
   };
 

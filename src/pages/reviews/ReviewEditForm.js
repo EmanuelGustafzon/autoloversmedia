@@ -41,7 +41,7 @@ function ReviewEditForm() {
             const {brand, model, model_year, image, pros, cons, is_owner} = data
             is_owner ? setReviewData({brand, model, model_year, image, pros, cons}) : history.push('/')
         } catch (err) {
-            console.log(err);
+           // console.log(err);
         }
     }
     handleMount();
@@ -80,7 +80,7 @@ function ReviewEditForm() {
       await axiosReq.put(`/review/${id}/`, formData);
       history.push(`/review/${id}`);
     } catch (err) {
-      console.log(err);
+      // console.log(err);
       if (err.response?.status !== 401) {
         setErrors(err.response?.data)
     }

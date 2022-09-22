@@ -45,7 +45,6 @@ const ProfileEditForm = () => {
           const { username, description, location, favorite_car_brand, experience_with_cars, image  } = data;
           setProfileData({ username, description, location, favorite_car_brand, experience_with_cars, image });
         } catch (err) {
-          console.log(err);
           history.push("/");
         }
       } else {
@@ -84,7 +83,7 @@ const ProfileEditForm = () => {
       }));
       history.goBack();
     } catch (err) {
-      console.log(err);
+      //console.log(err);
       setErrors(err.response?.data);
     }
   };
