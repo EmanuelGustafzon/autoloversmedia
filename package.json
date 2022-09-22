@@ -46,5 +46,18 @@
     "eslint": "^8.23.1",
     "eslint-plugin-react": "^7.31.8",
     "msw": "^0.35.0"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "main": ".eslintrc.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EmanuelGustafzon/autoloversmedia.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EmanuelGustafzon/autoloversmedia/issues"
+  },
+  "homepage": "https://github.com/EmanuelGustafzon/autoloversmedia#readme"
 }
