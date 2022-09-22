@@ -22,31 +22,31 @@ As a logged out user you can view reviews and market and as a logged in user you
 ## Features
 
 ### Login
- ![feature login](src/assets/images/IMG-2640)
+ ![feature login](src/assets/images/IMG-2640.PNG)
 ### Register
- ![feature signup](src/assets/images/IMG-2641)
+ ![feature signup](src/assets/images/IMG-2641.PNG)
 ### home page
- ![feature home](src/assets/images/IMG-2643)
+ ![feature home](src/assets/images/IMG-2643.PNG)
  ### Market page
- ![feature market](src/assets/images/IMG-2642)
+ ![feature market](src/assets/images/IMG-2642.PNG)
   ### Review page
- ![feature review](src/assets/images/IMG-2646)
+ ![feature review](src/assets/images/IMG-2646.PNG)
    ### Navbar
- ![feature navbar](src/assets/images/IMG-2644)
+ ![feature navbar](src/assets/images/IMG-2644.PNG)
   ### most popular profiles
- ![feature popular profiles](src/assets/images/IMG-2644)
+ ![feature popular profiles](src/assets/images/IMG-2644.PNG)
    ### Create review
- ![feature review](src/assets/images/IMG-2644)
+ ![feature review](src/assets/images/IMG-2644.PNG)
    ### Sell car
- ![feature sell car](src/assets/images/IMG-2650)
+ ![feature sell car](src/assets/images/IMG-2650.PNG)
    ### Update and delete car for sale and review. 
- ![feature update review](src/assets/images/IMG-2653)
+ ![feature update review](src/assets/images/IMG-2653.PNG)
    ### Update comment, update, delete, and like comments
- ![feature comments](src/assets/images/IMG-2656)
+ ![feature comments](src/assets/images/IMG-2656.PNG)
    ### Update profile, username and password and follow and unfollow profile.
- ![feature profile](src/assets/images/IMG-2656)
+ ![feature profile](src/assets/images/IMG-2656.PNG)
    ### See a profiles reviews and ads.
- ![feature profile](src/assets/images/IMG-2652)
+ ![feature profile](src/assets/images/IMG-2652.PNG)
  
 
 
@@ -64,7 +64,7 @@ As a logged out user you can view reviews and market and as a logged in user you
   - Test that the database is updating correctly accoring to users interactions on the page. 
 
 ## Lighthouse
- ![lighthouse](src/assets/images/lighthouse)
+ ![lighthouse](src/assets/images/lighthouse.png)
 
 ## Problems with testing
 Because of poor knowledge of how to use Eslint it caused a problem in the gitpod workspace because node_modules in the project folder. I would like to fix this and do a proper test but as I did not have any tutor hours left for the week I could not. This also affect the test for css. There is a style folder with a color hex number with a # left out wich leads to an error. I fixed this but because of the propblem with Eslint i cannot redeploy the site at heroku. 
